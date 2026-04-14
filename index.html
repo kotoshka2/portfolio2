@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="ru">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Ремесленный Архив | Испечено с намерением</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Golos+Text:wght@400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-lowest": "#ffffff",
+                        "outline": "#827a65",
+                        "on-surface": "#383221",
+                        "background": "#fff8ef",
+                        "secondary": "#366480",
+                        "error-container": "#fd795a",
+                        "error": "#a73b21",
+                        "on-error-container": "#6e1400",
+                        "surface-variant": "#ece2c8",
+                        "tertiary-fixed-dim": "#e67f63",
+                        "surface-container-high": "#f1e7d1",
+                        "on-secondary": "#f5f9ff",
+                        "tertiary-container": "#f68b6f",
+                        "secondary-container": "#c7e7ff",
+                        "inverse-on-surface": "#a29c8f",
+                        "surface-tint": "#50662b",
+                        "on-tertiary-fixed-variant": "#611a07",
+                        "on-tertiary": "#fff7f6",
+                        "on-background": "#383221",
+                        "on-tertiary-container": "#541101",
+                        "on-primary": "#f0ffcf",
+                        "primary-fixed": "#d2eca2",
+                        "on-primary-container": "#43581f",
+                        "inverse-primary": "#e0fbaf",
+                        "surface-container-highest": "#ece2c8",
+                        "primary": "#50662b",
+                        "secondary-fixed-dim": "#acdafb",
+                        "surface-bright": "#fff8ef",
+                        "surface-dim": "#e4d9c0",
+                        "on-error": "#fff7f6",
+                        "primary-container": "#d2eca2",
+                        "outline-variant": "#bbb19a",
+                        "primary-fixed-dim": "#c4de95",
+                        "error-dim": "#791903",
+                        "on-secondary-container": "#275672",
+                        "on-secondary-fixed": "#0d445f",
+                        "inverse-surface": "#110e06",
+                        "surface": "#fff8ef",
+                        "secondary-fixed": "#c7e7ff",
+                        "on-secondary-fixed-variant": "#32607c",
+                        "tertiary": "#9b452e",
+                        "primary-dim": "#455a20",
+                        "on-tertiary-fixed": "#200300",
+                        "on-primary-fixed-variant": "#4d6227",
+                        "secondary-dim": "#285874",
+                        "on-surface-variant": "#665f4b",
+                        "tertiary-fixed": "#f68b6f",
+                        "on-primary-fixed": "#32450d",
+                        "surface-container-low": "#fcf3e0",
+                        "tertiary-dim": "#8c3923",
+                        "surface-container": "#f7edd8"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Playfair Display", "serif"],
+                        "body": ["Golos Text", "sans-serif"],
+                        "label": ["Golos Text", "sans-serif"]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Golos Text', sans-serif;
+            background-color: #fff8ef;
+            color: #383221;
+        }
+
+        .font-headline {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .grainy-overlay {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            pointer-events: none;
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+
+<body class="relative overflow-x-hidden selection:bg-primary-container selection:text-on-primary-container">
+    <div class="fixed inset-0 grainy-overlay z-[60]"></div>
+    <!-- Navigation -->
+    <nav
+        class="fixed top-0 w-full z-50 flex justify-between items-center px-8 py-6 max-w-none bg-[#fff8ef] bg-opacity-80 backdrop-blur-md font-['Playfair_Display'] tracking-tight">
+        <div class="text-2xl font-bold text-[#383221] dark:text-[#fff8ef]">Ремесленный Архив</div>
+        <div class="hidden md:flex gap-10">
+            <a class="text-[#50662b] font-bold border-b-2 border-[#50662b] transition-colors duration-300"
+                href="#story">Наша история</a>
+            <a class="text-[#665f4b] hover:text-[#50662b] transition-colors duration-300" href="#loaves">Ремесленный
+                хлеб</a>
+            <a class="text-[#665f4b] hover:text-[#50662b] transition-colors duration-300" href="#process">Процесс</a>
+            <a class="text-[#665f4b] hover:text-[#50662b] transition-colors duration-300" href="#location">Адреса</a>
+        </div>
+        <button
+            class="bg-primary text-on-primary px-8 py-3 rounded-full font-bold hover:bg-primary-dim transition-all active:scale-95 duration-200 font-['Golos_Text']">
+            Заказать сейчас
+        </button>
+    </nav>
+    <main class="pt-24">
+        <!-- Hero Section -->
+        <section
+            class="min-h-[870px] px-8 md:px-20 flex flex-col md:flex-row items-center justify-between gap-12 overflow-hidden bg-surface">
+            <div class="flex-1 max-w-2xl">
+                <span
+                    class="inline-block px-4 py-1.5 rounded-full bg-tertiary-container text-on-tertiary-container font-bold text-sm tracking-widest mb-6 uppercase font-['Golos_Text']">
+                    Осн. в 1954
+                </span>
+                <h1
+                    class="text-5xl md:text-7xl font-headline font-extrabold leading-[1.1] text-on-surface mb-8 tracking-tight">
+                    Испечено с <span class="text-primary italic">намерением</span>, подано с душой.
+                </h1>
+                <p class="text-lg md:text-xl text-on-surface-variant leading-relaxed mb-10 max-w-lg">
+                    Храм ремесленного хлеба, где геометрическая точность встречается с органическим теплом
+                    старинных злаков. Откройте для себя архив русских хлебных традиций.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <button
+                        class="bg-primary text-on-primary px-10 py-5 rounded-full text-lg font-bold hover:bg-primary-dim transition-all">
+                        Свежая выпечка сегодня
+                    </button>
+                    <button
+                        class="bg-secondary-container text-on-secondary-container px-10 py-5 rounded-full text-lg font-bold hover:bg-opacity-80 transition-all">
+                        Наш процесс
+                    </button>
+                </div>
+            </div>
+            <div class="flex-1 relative">
+                <div
+                    class="absolute -z-10 w-[120%] h-[120%] -top-10 -right-10 bg-primary-container rounded-full opacity-20">
+                </div>
+                <img alt="Уютная пекарня"
+                    class="w-full h-auto object-cover rounded-xl shadow-sm transform md:translate-x-12 rotate-2"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPNa6erix8Z1ckQY8RzbYA8BDWxvTexiOR-Cq3tNRPPBGOCKLUNXztvIyLlh7x_MUi5reCpTbnXVTqZ-xYoGIndqCwLYU6SDRQMfB5EYmbDQD7Rg6qCpouNpaFdvk8PgQCX-77GpG72Q6bTFDIIXfmT20acp9vYzdilcmWSh7F6NhV7N8y9_2eHxPVejxQcyzu2Mi3dJIyI8jjA0xqHK3vPBFOS8dCjunSKCI5xZIwyWrG2Qd7sQeBkdB9Ujt6AH4qj5IFF6o7rRo" />
+            </div>
+        </section>
+        <!-- Bento Grid: Our Story & Values -->
+        <section class="py-24 px-8 md:px-20 bg-surface-container-low" id="story">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 max-w-7xl mx-auto">
+                <div
+                    class="md:col-span-8 bg-surface-container-lowest p-12 rounded-xl flex flex-col justify-center relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-8">
+                        <span class="material-symbols-outlined text-primary text-6xl opacity-20">history_edu</span>
+                    </div>
+                    <h2 class="text-4xl font-headline font-bold text-on-surface mb-6">Наше наследие</h2>
+                    <p class="text-lg text-on-surface-variant leading-relaxed max-w-2xl mb-8">
+                        В 1954 году Николай Берестов открыл небольшую пекарню в Москве. Он верил, что хлеб — это не
+                        просто еда, а историческая запись о зерне, воде и времени. Сегодня мы храним это наследие,
+                        используя 72-часовую холодную ферментацию и старинные сорта зерна из российских регионов.
+                    </p>
+                    <div class="flex gap-4 items-center">
+                        <div class="w-16 h-16 rounded-full bg-secondary-fixed flex items-center justify-center">
+                            <span class="material-symbols-outlined text-on-secondary-fixed">psychology</span>
+                        </div>
+                        <div>
+                            <p class="font-bold text-on-surface">Философская выпечка</p>
+                            <p class="text-sm text-on-surface-variant">Каждая буханка рассказывает уникальную
+                                историю русской земли.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:col-span-4 bg-primary p-12 rounded-xl text-on-primary flex flex-col justify-between">
+                    <h3 class="text-2xl font-bold font-headline mb-4">Клятва пекаря</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-primary-fixed">check_circle</span>
+                            Без синтетических дрожжей
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-primary-fixed">check_circle</span>
+                            Органические старинные злаки
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-primary-fixed">check_circle</span>
+                            Каменная дровяная печь
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-primary-fixed">check_circle</span>
+                            Компостируемая упаковка
+                        </li>
+                    </ul>
+                    <div class="mt-8 pt-8 border-t border-on-primary border-opacity-10">
+                        <p class="text-sm opacity-80 italic">«Медленный хлеб для быстрого мира.»</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Product Grid: Artisanal Loaves -->
+        <section class="py-24 px-8 md:px-20 bg-surface" id="loaves">
+            <div class="max-w-7xl mx-auto">
+                <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+                    <div>
+                        <h2 class="text-4xl md:text-5xl font-headline font-extrabold text-on-surface mb-4">Ежедневный
+                            архив</h2>
+                        <p class="text-on-surface-variant text-lg">Отобранные изделия из нашего утреннего замеса,
+                            упорядоченные по гидратации и структуре мякиша.</p>
+                    </div>
+                    <div class="flex gap-2">
+                        <button
+                            class="px-6 py-2 rounded-full border border-outline-variant hover:bg-surface-container-high transition-colors">Закваска</button>
+                        <button
+                            class="px-6 py-2 rounded-full border border-outline-variant hover:bg-surface-container-high transition-colors">Выпечка</button>
+                        <button
+                            class="px-6 py-2 rounded-full border border-outline-variant hover:bg-surface-container-high transition-colors">Зерно</button>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+                    <!-- Product 1 -->
+                    <div class="group">
+                        <div
+                            class="relative bg-surface-container rounded-xl aspect-[4/5] mb-6 overflow-hidden transition-all duration-500 group-hover:-translate-y-2">
+                            <img alt="Классический бородинский" class="w-full h-full object-cover"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRcE09e_sbb6PXJ1bOQuAnLl4iJHk7L5ofTmrgN4J2dtSlX3fnjtMgG3MIM2D1XC3Zv7Z3jbtCsUsnC1BhR0772HKRiS43aWpgP_5z6mQL2ZWXn5zXnpDR5gm84Ht4UOqUmdmdTDYnP7xhBokk7cgOpJhN5zPUhPUlAdMD9ky2u8Fke1E-0nYy4bDEtxLYou1W3TYOHOWG7gyWxAeBNNGhJtgVZfbRvxK9tbVOpKvjYKq1AUzHfglL8b8_IiOtViUeQBivyyCF9Xw" />
+                            <div
+                                class="absolute top-4 right-4 bg-tertiary-container px-4 py-1 rounded-full text-on-tertiary-container font-bold text-xs">
+                                ГИДРАТАЦИЯ 85%
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-xl font-bold text-on-surface font-headline">Бородинский на закваске</h3>
+                                <p class="text-on-surface-variant text-sm mt-1">Дикие дрожжи, 36 часов холодной
+                                    ферментации.</p>
+                            </div>
+                            <span class="font-headline font-bold text-primary">490 ₽</span>
+                        </div>
+                    </div>
+                    <!-- Product 2 -->
+                    <div class="group">
+                        <div
+                            class="relative bg-surface-container rounded-xl aspect-[4/5] mb-6 overflow-hidden transition-all duration-500 group-hover:-translate-y-2">
+                            <img alt="Слоёные круассаны" class="w-full h-full object-cover"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEQ2MtPhx_PbiDg7ciA_WlqJbK_QQspi_2rnrBdGoSJPwEN91jCmFTbXa5VfuH1NKXKtPU9vZWNHevGHjO6cZQsBSSv-0HVrRwTuNPxDy1-FFwbM33VoYxV8T2OEbKTGcThSdaRsQIP9tA_MYVcciUIA5DJZzBTpmq6v9nLh8fGZZVGyHkAa6ewuLQqr1TgJzXTvzbvEOwZRQ_z148keERy4HSw2mkSu32F1_F-pRacrxgsZW0gsSBhfSK8XiVB08QV8ubPJHQFaU" />
+                            <div
+                                class="absolute top-4 right-4 bg-primary-container px-4 py-1 rounded-full text-on-primary-container font-bold text-xs">
+                                ВОЛОГОДСКОЕ МАСЛО
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-xl font-bold text-on-surface font-headline">Круассан слоёный</h3>
+                                <p class="text-on-surface-variant text-sm mt-1">27 слоёв фермерского сливочного масла.
+                                </p>
+                            </div>
+                            <span class="font-headline font-bold text-primary">280 ₽</span>
+                        </div>
+                    </div>
+                    <!-- Product 3 -->
+                    <div class="group">
+                        <div
+                            class="relative bg-surface-container rounded-xl aspect-[4/5] mb-6 overflow-hidden transition-all duration-500 group-hover:-translate-y-2">
+                            <img alt="Старинный зерновой хлеб" class="w-full h-full object-cover"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5VoV7i7JfgLRe4bOODFtDlm1Qu21WWa5rJqtuqDm4cz7VMbrXQJUAIKKtZjhwv1dnL2bmnqOY8OFc8_QEdAXOIUAyPzA3b6mYI8O4f-J20p23dfoQxpaV21bGxFipO2of4OJa7692Y47bUu6T2iSIAKq4g_nxBRcq7yVsitjlR-WkjzaJkGmEzrOlf8CDbxjRkYlA6Km59JbN21RZPE84PkJFLXI6Sgw_sPgznESxpqKncTQaRNiEK8KTMHNXed-IbjBaT5RTN6o" />
+                            <div
+                                class="absolute top-4 right-4 bg-secondary-container px-4 py-1 rounded-full text-on-secondary-container font-bold text-xs">
+                                ПОЛБА И РОЖЬ
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="text-xl font-bold text-on-surface font-headline">Старинный злаковый</h3>
+                                <p class="text-on-surface-variant text-sm mt-1">Полба, пшеница-эммер и рожь с малых
+                                    ферм.</p>
+                            </div>
+                            <span class="font-headline font-bold text-primary">550 ₽</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Process Section -->
+        <section class="py-24 bg-surface-container overflow-hidden" id="process">
+            <div class="max-w-7xl mx-auto px-8 md:px-20">
+                <div class="text-center max-w-2xl mx-auto mb-20">
+                    <h2 class="text-4xl font-headline font-bold text-on-surface mb-4">Точность в деталях</h2>
+                    <p class="text-on-surface-variant">Наш цикл выпечки следует ритмичной математической прогрессии,
+                        созданной для достижения идеального вкусового профиля.</p>
+                </div>
+                <div class="flex flex-col md:flex-row gap-8">
+                    <div
+                        class="flex-1 bg-surface-container-lowest p-8 rounded-xl border border-outline-variant border-opacity-10 transition-all hover:bg-surface-bright">
+                        <div
+                            class="w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center mb-6">
+                            <span class="material-symbols-outlined text-primary">grain</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-on-surface mb-3">01. Отбор</h4>
+                        <p class="text-sm text-on-surface-variant leading-relaxed">Выбор зерна с особой структурой
+                            белка и исторической значимостью из хозяйств Краснодарского края.</p>
+                    </div>
+                    <div
+                        class="flex-1 bg-surface-container-lowest p-8 rounded-xl border border-outline-variant border-opacity-10 transition-all hover:bg-surface-bright">
+                        <div
+                            class="w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center mb-6">
+                            <span class="material-symbols-outlined text-primary">opacity</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-on-surface mb-3">02. Гидратация</h4>
+                        <p class="text-sm text-on-surface-variant leading-relaxed">Мастерский контроль воды для
+                            создания воздушного сотового мякиша.</p>
+                    </div>
+                    <div
+                        class="flex-1 bg-surface-container-lowest p-8 rounded-xl border border-outline-variant border-opacity-10 transition-all hover:bg-surface-bright">
+                        <div
+                            class="w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center mb-6">
+                            <span class="material-symbols-outlined text-primary">schedule</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-on-surface mb-3">03. Ферментация</h4>
+                        <p class="text-sm text-on-surface-variant leading-relaxed">Холодный отдых позволяет сложным
+                            сахарам развиваться естественным путем в течение 3 дней.</p>
+                    </div>
+                    <div
+                        class="flex-1 bg-surface-container-lowest p-8 rounded-xl border border-outline-variant border-opacity-10 transition-all hover:bg-surface-bright">
+                        <div
+                            class="w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center mb-6">
+                            <span class="material-symbols-outlined text-primary">local_fire_department</span>
+                        </div>
+                        <h4 class="text-xl font-bold text-on-surface mb-3">04. Кристаллизация</h4>
+                        <p class="text-sm text-on-surface-variant leading-relaxed">Выпекание в каменной дровяной печи
+                            при высокой температуре для глубокой золотистой корочки.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Location Section -->
+        <section class="py-24 px-8 md:px-20 bg-surface" id="location">
+            <div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 items-center">
+                <div class="flex-1">
+                    <h2 class="text-4xl font-headline font-bold text-on-surface mb-6">Заходите в гости</h2>
+                    <div class="space-y-8">
+                        <div class="flex gap-4">
+                            <span class="material-symbols-outlined text-secondary">location_on</span>
+                            <div>
+                                <p class="font-bold text-on-surface">Флагманская пекарня</p>
+                                <p class="text-on-surface-variant">ул. Хлебный переулок, д. 4, стр. 1<br />Москва,
+                                    121069</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <span class="material-symbols-outlined text-secondary">schedule</span>
+                            <div>
+                                <p class="font-bold text-on-surface">Часы работы</p>
+                                <p class="text-on-surface-variant">Вт – Сб: 07:00 – 14:00<br />Вс – Пн: Творческий
+                                    отдых
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <span class="material-symbols-outlined text-secondary">contact_support</span>
+                            <div>
+                                <p class="font-bold text-on-surface">Общие вопросы</p>
+                                <p class="text-on-surface-variant">info@remeslennyj-arhiv.ru<br />+7 (495) 123-45-67
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="flex-1 w-full h-[400px] rounded-xl overflow-hidden grayscale contrast-125 border border-outline-variant border-opacity-20 relative">
+                    <img alt="Карта проезда" class="w-full h-full object-cover"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsSIeIyaf69P5LLqnrOVBFlnpT4yLYR71WGKc4Wn_sqOnW4gWebRIFEKvUuSiXVSyMTZcXJVTwdFoHVnF-kvaaEZ9M6dcCY2vC8Jw9EXEh7_qXHclD3KV17eSESCjkwGCJVNO36IQTGEfFKLYPK3v0Mr0XM1CY6qrhETZI4QV61xXYwHs-impeMlfsKYE_b82lvGl6U6TksJ8r8MKn5xIT71Yxy7lV_kwZx_8KUF9sobShudqh1cxDfA0joLhVEkX9N2w53IgW3xE" />
+                    <div class="absolute inset-0 bg-secondary mix-blend-multiply opacity-20"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Footer -->
+    <footer
+        class="w-full flex flex-col md:flex-row justify-between items-center px-12 py-12 bg-[#f7edd8] dark:bg-[#2b261a] font-['Golos_Text'] text-sm tracking-wide">
+        <div class="flex flex-col items-center md:items-start gap-4 mb-8 md:mb-0">
+            <div class="text-xl font-bold text-[#383221] font-['Playfair_Display']">Ремесленный Архив</div>
+            <p class="text-[#665f4b] opacity-80">© 1954 Ремесленный Архив. Испечено с намерением.</p>
+        </div>
+        <div class="flex gap-8">
+            <a class="text-[#665f4b] hover:text-[#383221] dark:hover:text-[#fff8ef] transition-opacity"
+                href="#">Политика конфиденциальности</a>
+            <a class="text-[#665f4b] hover:text-[#383221] dark:hover:text-[#fff8ef] transition-opacity" href="#">Оптовые
+                закупки</a>
+            <a class="text-[#665f4b] hover:text-[#383221] dark:hover:text-[#fff8ef] transition-opacity"
+                href="#">Вакансии</a>
+            <a class="text-[#665f4b] hover:text-[#383221] dark:hover:text-[#fff8ef] transition-opacity"
+                href="#">Контакт</a>
+        </div>
+    </footer>
+    <!-- FAB -->
+    <div class="fixed bottom-8 right-8 z-[100]">
+        <button
+            class="w-16 h-16 bg-tertiary text-on-tertiary rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform active:scale-95 group">
+            <span class="material-symbols-outlined group-hover:rotate-12 transition-transform" data-weight="fill"
+                style="font-variation-settings: 'FILL' 1;">shopping_basket</span>
+        </button>
+    </div>
+</body>
+
+</html>
